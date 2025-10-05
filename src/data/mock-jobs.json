@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Frontend Developer",
+    "company": "TechCorp",
+    "location": "Utah",
+    "salary": "$80,000 - $100,000",
+    "type": "Full Time",
+    "datePosted": "2025-09-28"
+  },
+  {
+    "id": 2,
+    "title": "Associate Vice President, Engineering Ser.....",
+    "company": "Google DeepMind",
+    "location": "Georgia, IN",
+    "salary": "$90,000 - $120,000",
+    "type": "Full Time",
+    "datePosted": "2025-09-25"
+  },
+  {
+    "id": 3,
+    "title": "Associate - Fill/Finish Ops",
+    "company": "SuperBase",
+    "location": "Remote",
+    "salary": "$80,000 - $100,000",
+    "type": "Contract",
+    "datePosted": "2025-09-28"
+  },
+  {
+    "id": 4,
+    "title": "Operations Associate - IDM",
+    "company": "Microsoft Tech",
+    "location": "Mishgan, IN",
+    "salary": "$90,000 - $120,000",
+    "type": "Full Time",
+    "datePosted": "2025-09-25"
+  },
+  {
+    "id": 5,
+    "title": "Program Coordinator",
+    "company": "KFC",
+    "location": "California",
+    "salary": "$80,000 - $100,000",
+    "type": "Part Time",
+    "datePosted": "2025-09-28"
+  },
+  {
+    "id": 6,
+    "title": "Backend Engineer",
+    "company": "DataWorks",
+    "location": "Indianapolis, IN",
+    "salary": "$90,000 - $120,000",
+    "type": "Internship",
+    "datePosted": "2025-09-25"
+  }
+]
