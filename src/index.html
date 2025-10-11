@@ -1,259 +1,367 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Jobs - Find Your Next Career Opportunity!</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/style.css" />
 
     <script scr="/js/main.js" type="module"></script>
-</head>
-<body>
-    <header>
-        <div class="header-left">
-            <h1>Cut. Jobs - Find Your Next Career Opportunity!</h1>
+  </head>
+  <body>
+    <header id="main-header">
+      <div class="header-left">
+        <h1>Cut. Jobs - Find Your Next Career Opportunity!</h1>
+      </div>
+
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a id="mark" href="index.html">Home</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Companies</a></li>
+          <li><a href="#">Salaries</a></li>
+          <li><a href="#">Careers Paths</a></li>
+        </ul>
+
+        <div class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
         </div>
-        <div class="header-right">
-            <div class="icon-button">
-                <svg aria-label="User" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H18C18 18.6863 15.3137 16 12 16C8.68629 16 6 18.6863 6 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11Z"/>
-                </svg>
-            </div>
-            <div class="icon-button">
-                <svg aria-label="Menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M19 1 3H5v6h14V3z"/>
-                </svg>
-            </div>
-            <button class="post-job-btn">Post a Job</button>
-        </div>
+      </nav>
+
+      <div class="header-right">
+        <div class="icon-button"><i class="ri-user-line-2"></i></div>
+        <div class="icon-button"></div>
+        <button class="post-job-btn">Post a Job</button>
+      </div>
     </header>
 
     <div class="container">
-        <div class="sidebar">
-            <div class="section">
-                <h2 class="section-title">
-                    <svg aria-label="Job Alerts" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm6 0h-2v-4h2v4zm-6-9c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
-                    </svg>
-                    Job alerts
-                </h2>
-                <p>We'll email you when new jobs match your criteria</p>
-                <form class="job-alerts-form">
-                    <input type="email" placeholder="Email" class="email-input" required>
-                    <button type="submit" class="alert-btn">Alert me</button>
-                </form>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">Search</h2>
-                <input type="text" placeholder="Search jobs..." class="search-input">
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">Category</h2>
-                <select class="filter-select">
-                    <option>All categories</option>
-                    <option>Technology</option>
-                    <option>Healthcare</option>
-                    <option>Education</option>
-                    <option>Finance</option>
-                    <option>Manufacturing</option>
-                    <option>Retail</option>
-                </select>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">Type</h2>
-                <select class="filter-select">
-                    <option>All types</option>
-                    <option>Full Time</option>
-                    <option>Part Time</option>
-                    <option>Contract</option>
-                    <option>Internship</option>
-                </select>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">Location</h2>
-                <select class="filter-select">
-                    <option>All locations</option>
-                    <option>Indianapolis, IN</option>
-                    <option>Fort Wayne, IN</option>
-                    <option>Evansville, IN</option>
-                    <option>South Bend, IN</option>
-                    <option>Carmel, IN</option>
-                </select>
-            </div>
-
-            <div class="section">
-                <div class="toggle-switch">
-                    <span class="switch-label">Remote Only</span>
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-            </div>
-
-            <button class="filter-btn">Filter jobs</button>
+      <div class="sidebar">
+        <div class="section">
+          <h2 class="section-title">
+            <svg
+              aria-label="Job Alerts"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm6 0h-2v-4h2v4zm-6-9c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
+              />
+            </svg>
+            Job alerts
+          </h2>
+          <p>We'll email you when new jobs match your criteria</p>
+          <form class="job-alerts-form">
+            <input
+              type="email"
+              placeholder="Email"
+              class="email-input"
+              required
+            />
+            <button type="submit" class="alert-btn">Alert me</button>
+          </form>
         </div>
 
-        <div class="main-content">
-            <div class="page-title">All Jobs</div>
-            <div class="search-icon">
-                <svg aria-label="Search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M15.5 14h-.79l-.28-.28C18.04 11.35 18.04 7.25 15.5 4.64L14 6.14c2.12 2.12 2.12 5.54 0 7.66l-1.5-1.5c-2.12-2.12-5.54-2.12-7.66 0l1.5 1.5c2.12 2.12 5.54 2.12 7.66 0l.28.28v.79l5 5zm-6-6C7.01 8 5 6.01 5 3.5S7.01 0 9.5 0 14 1.99 14 4.5 11.99 8 9.5 8z"/>
+        <div class="section">
+          <h2 class="section-title">Search</h2>
+          <input
+            type="text"
+            placeholder="Search jobs..."
+            class="search-input"
+          />
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Category</h2>
+          <select class="filter-select">
+            <option>All categories</option>
+            <option>Technology</option>
+            <option>Healthcare</option>
+            <option>Education</option>
+            <option>Finance</option>
+            <option>Manufacturing</option>
+            <option>Retail</option>
+          </select>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Type</h2>
+          <select class="filter-select">
+            <option>All types</option>
+            <option>Full Time</option>
+            <option>Part Time</option>
+            <option>Contract</option>
+            <option>Internship</option>
+          </select>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Location</h2>
+          <select class="filter-select">
+            <option>All locations</option>
+            <option>Indianapolis, IN</option>
+            <option>Fort Wayne, IN</option>
+            <option>Evansville, IN</option>
+            <option>South Bend, IN</option>
+            <option>Carmel, IN</option>
+          </select>
+        </div>
+
+        <div class="section">
+          <div class="toggle-switch">
+            <span class="switch-label">Remote Only</span>
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <button class="filter-btn">Filter jobs</button>
+      </div>
+
+      <div class="main-content">
+        <div class="page-title">All Jobs</div>
+        <div class="search-icon">
+          <svg
+            aria-label="Search"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.5 14h-.79l-.28-.28C18.04 11.35 18.04 7.25 15.5 4.64L14 6.14c2.12 2.12 2.12 5.54 0 7.66l-1.5-1.5c-2.12-2.12-5.54-2.12-7.66 0l1.5 1.5c2.12 2.12 5.54 2.12 7.66 0l.28.28v.79l5 5zm-6-6C7.01 8 5 6.01 5 3.5S7.01 0 9.5 0 14 1.99 14 4.5 11.99 8 9.5 8z"
+            />
+          </svg>
+        </div>
+
+        <div class="job-list">
+          <!-- Example job card with dynamic logo placeholder -->
+          <!-- <div class="job-card">
+            <div class="job-header">
+              <div style="display: flex; align-items: center">
+                <div class="company-logo">
+                  <div class="logo-placeholder">L</div>
+                </div>
+                <div>
+                  <h3 class="job-title">
+                    Associate Vice President, Engineering Services
+                  </h3>
+                  <div class="company-name">Lilly</div>
+                </div>
+              </div>
+              <div class="job-date">9 days ago</div>
+            </div>
+            <div class="job-meta">
+              <div class="salary">
+                <svg
+                  aria-label="Salary"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-2-2v-3H6v-2h2V9l2-2h2l2 2v2h2v2h-2v3l-2 2v1h-2v-1zm2.5-6.5c0-1.38-1.12-2.5-2.5-2.5s-2.5 1.12-2.5 2.5S10.62 13 12 13s2.5-1.12 2.5-2.5z"
+                  />
                 </svg>
+                $225,000 - $330,000
+              </div>
+              <div class="location">
+                <svg
+                  aria-label="Location"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  />
+                </svg>
+                Indianapolis, IN
+              </div>
+              <div class="type">
+                <svg
+                  aria-label="Job Type"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h2.5L18 6.5 19.5 8 21 9.5V12h-2v-2.5L17.5 8 16 6.5 14.5 5V3h2z"
+                  />
+                </svg>
+                Full Time
+              </div>
             </div>
+          </div>
 
-            <div class="job-list">
-                <!-- Example job card with dynamic logo placeholder -->
-                <div class="job-card">
-                    <div class="job-header">
-                        <div style="display: flex; align-items: center;">
-                            <div class="company-logo">
-                                <div class="logo-placeholder">L</div>
-                            </div>
-                            <div>
-                                <h3 class="job-title">Associate Vice President, Engineering Services</h3>
-                                <div class="company-name">Lilly</div>
-                            </div>
-                        </div>
-                        <div class="job-date">9 days ago</div>
-                    </div>
-                    <div class="job-meta">
-                        <div class="salary">
-                            <svg aria-label="Salary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-2-2v-3H6v-2h2V9l2-2h2l2 2v2h2v2h-2v3l-2 2v1h-2v-1zm2.5-6.5c0-1.38-1.12-2.5-2.5-2.5s-2.5 1.12-2.5 2.5S10.62 13 12 13s2.5-1.12 2.5-2.5z"/>
-                            </svg>
-                            $225,000 - $330,000
-                        </div>
-                        <div class="location">
-                            <svg aria-label="Location" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                            </svg>
-                            Indianapolis, IN
-                        </div>
-                        <div class="type">
-                            <svg aria-label="Job Type" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h2.5L18 6.5 19.5 8 21 9.5V12h-2v-2.5L17.5 8 16 6.5 14.5 5V3h2z"/>
-                            </svg>
-                            Full Time
-                        </div>
-                    </div>
+          <div class="job-card">
+            <div class="job-header">
+              <div style="display: flex; align-items: center">
+                <div class="company-logo">
+                  <div class="logo-placeholder">L</div>
                 </div>
-
-                <div class="job-card">
-                    <div class="job-header">
-                        <div style="display: flex; align-items: center;">
-                            <div class="company-logo">
-                                <div class="logo-placeholder">L</div>
-                            </div>
-                            <div>
-                                <h3 class="job-title">Associate - Fill/Finish Ops</h3>
-                                <div class="company-name">Lilly</div>
-                            </div>
-                        </div>
-                        <div class="job-date">9 days ago</div>
-                    </div>
-                    <div class="job-meta">
-                        <div class="salary">
-                            <svg aria-label="Salary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-2-2v-3H6v-2h2V9l2-2h2l2 2v2h2v2h-2v3l-2 2v1h-2v-1zm2.5-6.5c0-1.38-1.12-2.5-2.5-2.5s-2.5 1.12-2.5 2.5S10.62 13 12 13s2.5-1.12 2.5-2.5z"/>
-                            </svg>
-                            $64,500 - $140,800
-                        </div>
-                        <div class="location">
-                            <svg aria-label="Location" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                            </svg>
-                            Indianapolis, IN
-                        </div>
-                        <div class="type">
-                            <svg aria-label="Job Type" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h2.5L18 6.5 19.5 8 21 9.5V12h-2v-2.5L17.5 8 16 6.5 14.5 5V3h2z"/>
-                            </svg>
-                            Full Time
-                        </div>
-                    </div>
+                <div>
+                  <h3 class="job-title">Associate - Fill/Finish Ops</h3>
+                  <div class="company-name">Lilly</div>
                 </div>
-
-                <div class="job-card">
-                    <div class="job-header">
-                        <div style="display: flex; align-items: center;">
-                            <div class="company-logo">
-                                <div class="logo-placeholder">L</div>
-                            </div>
-                            <div>
-                                <h3 class="job-title">Operations Associate - IDM</h3>
-                                <div class="company-name">Lilly</div>
-                            </div>
-                        </div>
-                        <div class="job-date">4 days ago</div>
-                    </div>
-                    <div class="job-meta">
-                        <div class="salary">
-                            <svg aria-label="Salary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-2-2v-3H6v-2h2V9l2-2h2l2 2v2h2v2h-2v3l-2 2v1h-2v-1zm2.5-6.5c0-1.38-1.12-2.5-2.5-2.5s-2.5 1.12-2.5 2.5S10.62 13 12 13s2.5-1.12 2.5-2.5z"/>
-                            </svg>
-                            $64,500 - $140,800
-                        </div>
-                        <div class="location">
-                            <svg aria-label="Location" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                            </svg>
-                            Indianapolis, IN
-                        </div>
-                        <div class="type">
-                            <svg aria-label="Job Type" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h2.5L18 6.5 19.5 8 21 9.5V12h-2v-2.5L17.5 8 16 6.5 14.5 5V3h2z"/>
-                            </svg>
-                            Full Time
-                        </div>
-                    </div>
-                </div>
-
-                <div class="job-card">
-                    <div class="job-header">
-                        <div style="display: flex; align-items: center;">
-                            <div class="company-logo">
-                                <div class="logo-placeholder">ST</div>
-                            </div>
-                            <div>
-                                <h3 class="job-title">Program Coordinator</h3>
-                                <div class="company-name">State of Indiana</div>
-                            </div>
-                        </div>
-                        <div class="job-date">4 days ago</div>
-                    </div>
-                    <div class="job-meta">
-                        <div class="salary">
-                            <svg aria-label="Salary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-2-2v-3H6v-2h2V9l2-2h2l2 2v2h2v2h-2v3l-2 2v1h-2v-1zm2.5-6.5c0-1.38-1.12-2.5-2.5-2.5s-2.5 1.12-2.5 2.5S10.62 13 12 13s2.5-1.12 2.5-2.5z"/>
-                            </svg>
-                            $50,000 - $70,000
-                        </div>
-                        <div class="location">
-                            <svg aria-label="Location" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                            </svg>
-                            Indianapolis, IN
-                        </div>
-                        <div class="type">
-                            <svg aria-label="Job Type" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h2.5L18 6.5 19.5 8 21 9.5V12h-2v-2.5L17.5 8 16 6.5 14.5 5V3h2z"/>
-                            </svg>
-                            Full Time
-                        </div>
-                    </div>
-                </div>
+              </div>
+              <div class="job-date">9 days ago</div>
             </div>
+            <div class="job-meta">
+              <div class="salary">
+                <svg
+                  aria-label="Salary"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-2-2v-3H6v-2h2V9l2-2h2l2 2v2h2v2h-2v3l-2 2v1h-2v-1zm2.5-6.5c0-1.38-1.12-2.5-2.5-2.5s-2.5 1.12-2.5 2.5S10.62 13 12 13s2.5-1.12 2.5-2.5z"
+                  />
+                </svg>
+                $64,500 - $140,800
+              </div>
+              <div class="location">
+                <svg
+                  aria-label="Location"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  />
+                </svg>
+                Indianapolis, IN
+              </div>
+              <div class="type">
+                <svg
+                  aria-label="Job Type"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h2.5L18 6.5 19.5 8 21 9.5V12h-2v-2.5L17.5 8 16 6.5 14.5 5V3h2z"
+                  />
+                </svg>
+                Full Time
+              </div>
+            </div>
+          </div>
+
+          <div class="job-card">
+            <div class="job-header">
+              <div style="display: flex; align-items: center">
+                <div class="company-logo">
+                  <div class="logo-placeholder">L</div>
+                </div>
+                <div>
+                  <h3 class="job-title">Operations Associate - IDM</h3>
+                  <div class="company-name">Lilly</div>
+                </div>
+              </div>
+              <div class="job-date">4 days ago</div>
+            </div>
+            <div class="job-meta">
+              <div class="salary">
+                <svg
+                  aria-label="Salary"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-2-2v-3H6v-2h2V9l2-2h2l2 2v2h2v2h-2v3l-2 2v1h-2v-1zm2.5-6.5c0-1.38-1.12-2.5-2.5-2.5s-2.5 1.12-2.5 2.5S10.62 13 12 13s2.5-1.12 2.5-2.5z"
+                  />
+                </svg>
+                $64,500 - $140,800
+              </div>
+              <div class="location">
+                <svg
+                  aria-label="Location"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  />
+                </svg>
+                Indianapolis, IN
+              </div>
+              <div class="type">
+                <svg
+                  aria-label="Job Type"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h2.5L18 6.5 19.5 8 21 9.5V12h-2v-2.5L17.5 8 16 6.5 14.5 5V3h2z"
+                  />
+                </svg>
+                Full Time
+              </div>
+            </div>
+          </div>
+
+          <div class="job-card">
+            <div class="job-header">
+              <div style="display: flex; align-items: center">
+                <div class="company-logo">
+                  <div class="logo-placeholder">ST</div>
+                </div>
+                <div>
+                  <h3 class="job-title">Program Coordinator</h3>
+                  <div class="company-name">State of Indiana</div>
+                </div>
+              </div>
+              <div class="job-date">4 days ago</div>
+            </div>
+            <div class="job-meta">
+              <div class="salary">
+                <svg
+                  aria-label="Salary"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-2-2v-3H6v-2h2V9l2-2h2l2 2v2h2v2h-2v3l-2 2v1h-2v-1zm2.5-6.5c0-1.38-1.12-2.5-2.5-2.5s-2.5 1.12-2.5 2.5S10.62 13 12 13s2.5-1.12 2.5-2.5z"
+                  />
+                </svg>
+                $50,000 - $70,000
+              </div>
+              <div class="location">
+                <svg
+                  aria-label="Location"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  />
+                </svg>
+                Indianapolis, IN
+              </div>
+              <div class="type">
+                <svg
+                  aria-label="Job Type"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h2.5L18 6.5 19.5 8 21 9.5V12h-2v-2.5L17.5 8 16 6.5 14.5 5V3h2z"
+                  />
+                </svg>
+                Full Time
+              </div>
+            </div>
+          </div> -->
         </div>
+      </div>
     </div>
 
-</body>
+    <footer id="main-footer"><p>&copy; 2025 Job Board</p></footer>
+  </body>
 </html>

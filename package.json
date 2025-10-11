@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "start": "vite preview",
     "lint": "eslint *.js src/**/*.js",
+    "format": "prettier --write \"**/*.js\" \"**/*.css\" \"**/*.html\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +25,9 @@
   },
   "homepage": "https://github.com/iriebijudicael/wdd330-jobboard-project-webapp#readme",
   "devDependencies": {
+    "eslint": "^9.37.0",
+    "prettier": "^3.6.2",
     "vite": "^7.1.9"
   }
 }
+

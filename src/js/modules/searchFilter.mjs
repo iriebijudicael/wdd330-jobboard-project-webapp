@@ -1,4 +1,4 @@
-import { renderJobList } from "./JobList.mjs";
+import { renderJobList } from "./jobList.mjs";
 
 export function renderSidebar() {
   document.getElementById("sidebar").innerHTML = `
@@ -24,3 +24,39 @@ export function setupFilters() {
     renderJobList({ search });
   };
 }
+
+
+
+
+// // Convert the category items into an array (if not already)
+// const displayItems = Array.from(category);
+
+// // Get the container element where we’ll insert the HTML
+// const rootElement = document.getElementById('root');
+
+// // Initialize an empty string to build our HTML content
+// let htmlString = '';
+
+// // Loop through each item in the category
+// displayItems.forEach(item => {
+//   // Destructure the item object for cleaner access
+//   const { index, image, title, rate, av } = item;
+
+//   // Create a div element for this job/card
+//   const listItem = document.createElement('div');
+//   listItem.className = 'list'; // Add CSS class
+
+//   // Build the inner HTML for this item using template literals
+//   const itemHTML = `
+//     <img src="${image}" alt="${title}" />
+//     <h3>${title}</h3>
+//     <p>Rate: $${rate}</p>
+//     <span id="key">${av}</span>
+//   `;
+
+//   // Set the inner HTML of the list item
+//   listItem.innerHTML = itemHTML;
+
+//   // Append this item to the root element
+//   rootElement.appendChild(listItem);
+// });
