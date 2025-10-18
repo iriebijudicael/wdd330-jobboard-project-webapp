@@ -1,56 +1,62 @@
 [
-  {
-    "id": 1,
-    "title": "Frontend Developer",
-    "company": "TechCorp",
-    "location": "Utah",
-    "salary": "$80,000 - $100,000",
-    "type": "Full Time",
-    "datePosted": "2025-09-28"
-  },
-  {
-    "id": 2,
-    "title": "Associate Vice President, Engineering Ser.....",
-    "company": "Google DeepMind",
-    "location": "Georgia, IN",
-    "salary": "$90,000 - $120,000",
-    "type": "Full Time",
-    "datePosted": "2025-09-25"
-  },
-  {
-    "id": 3,
-    "title": "Associate - Fill/Finish Ops",
-    "company": "SuperBase",
-    "location": "Remote",
-    "salary": "$80,000 - $100,000",
-    "type": "Contract",
-    "datePosted": "2025-09-28"
-  },
-  {
-    "id": 4,
-    "title": "Operations Associate - IDM",
-    "company": "Microsoft Tech",
-    "location": "Mishgan, IN",
-    "salary": "$90,000 - $120,000",
-    "type": "Full Time",
-    "datePosted": "2025-09-25"
-  },
-  {
-    "id": 5,
-    "title": "Program Coordinator",
-    "company": "KFC",
-    "location": "California",
-    "salary": "$80,000 - $100,000",
-    "type": "Part Time",
-    "datePosted": "2025-09-28"
-  },
-  {
-    "id": 6,
-    "title": "Backend Engineer",
-    "company": "DataWorks",
-    "location": "Indianapolis, IN",
-    "salary": "$90,000 - $120,000",
-    "type": "Internship",
-    "datePosted": "2025-09-25"
-  }
-]
+      {
+        "id": 1,
+        "title": "Associate Vice President, Engineering Services",
+        "company": "Lilly",
+        "salary": "$0,000 - $10,000",
+        "location": "Indianapolis, IN",
+        "type": "Internship",
+        "posted": "9 days ago",
+        "category": "technology"
+      },
+      {
+        "id": 2,
+        "title": "Associate - Fill/Finish Ops",
+        "company": "Lilly",
+        "salary": "$64,500 - $140,800",
+        "location": "Indianapolis, IN",
+        "type": "Full Time",
+        "posted": "9 days ago",
+        "category": "manufacturing"
+      },
+      {
+        "id": 3,
+        "title": "Operations Associate - IDM",
+        "company": "Lilly",
+        "salary": "$64,500 - $140,800",
+        "location": "Indianapolis, IN",
+        "type": "Part Time",
+        "posted": "4 days ago",
+        "category": "technology"
+      },
+      {
+        "id": 4,
+        "title": "Program Coordinator",
+        "company": "State of Indiana",
+        "salary": "$50,000 - $70,000",
+        "location": "Indianapolis, IN",
+        "type": "Part Time",
+        "posted": "4 days ago",
+        "category": "government"
+      },
+      {
+        "id": 5,
+        "title": "Registered Nurse",
+        "company": "Community Health",
+        "salary": "$70,000 - $90,000",
+        "location": "Fort Wayne, IN",
+        "type": "Full Time",
+        "posted": "2 days ago",
+        "category": "healthcare"
+      },
+      {
+        "id": 6,
+        "title": "High School Teacher",
+        "company": "Indianapolis Public Schools",
+        "salary": "$55,000 - $75,000",
+        "location": "Indianapolis, IN",
+        "type": "Remote",
+        "posted": "1 day ago",
+        "category": "education"
+      }
+    ]

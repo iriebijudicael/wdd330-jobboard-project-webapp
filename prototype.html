@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display JSON Data</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f7fa;
+        color: #333;
+      }
+
+      .container {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        margin-bottom: 30px;
+      }
+
+      h1 {
+        color: #001f5b;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .controls {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      button {
+        background: #001f5b;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.3s ease;
+      }
+
+      button:hover {
+        background: #001540;
+      }
+
+      select {
+        padding: 10px;
+        border: 1px solid #d1d9e6;
+        border-radius: 6px;
+        font-size: 1rem;
+      }
+
+      .job-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .job-card {
+        background: #f8fafc;
+        border-left: 4px solid #001f5b;
+        border-radius: 8px;
+        padding: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .job-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 15px;
+      }
+
+      .job-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #001f5b;
+      }
+
+      .company-name {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 10px;
+      }
+
+      .job-meta {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      .loading {
+        text-align: center;
+        padding: 40px;
+        color: #666;
+      }
+
+      .error {
+        color: #e53e3e;
+        text-align: center;
+        padding: 20px;
+        background: #fee;
+        border-radius: 6px;
+        margin: 20px 0;
+      }
+
+      @media (max-width: 768px) {
+        .controls {
+          flex-direction: column;
+        }
+
+        .job-meta {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Indiana Jobs – Find Your Next Career Opportunity!</h1>
+
+      <div class="controls">
+        <select id="categoryFilter">
+          <option value="all">All Categories</option>
+          <option value="technology">Technology</option>
+          <option value="healthcare">Healthcare</option>
+          <option value="education">Education</option>
+          <option value="finance">Finance</option>
+        </select>
+
+        <select id="locationFilter">
+          <option value="all">All Locations</option>
+          <option value="Indianapolis, IN">Indianapolis, IN</option>
+          <option value="Fort Wayne, IN">Fort Wayne, IN</option>
+          <option value="Evansville, IN">Evansville, IN</option>
+        </select>
+
+        <button id="loadJobs">Load Jobs</button>
+        <button id="clearJobs">Clear</button>
+      </div>
+
+      <div id="errorMessage" class="error" style="display: none"></div>
+
+      <div id="loading" class="loading" style="display: none">
+        <p>Loading jobs...</p>
+      </div>
+
+      <div id="jobList" class="job-list">
+        <!-- Job cards will be inserted here -->
+      </div>
+    </div>
+
+    <script>
+      // Sample JSON data (in a real scenario, this would come from an external file)
+      const jobsData = [
+        {
+          id: 1,
+          title: "Associate Vice President, Engineering Services",
+          company: "Lilly",
+          salary: "$225,000 - $330,000",
+          location: "Indianapolis, IN",
+          type: "Full Time",
+          posted: "9 days ago",
+          category: "technology",
+        },
+        {
+          id: 2,
+          title: "Associate - Fill/Finish Ops",
+          company: "Lilly",
+          salary: "$64,500 - $140,800",
+          location: "Indianapolis, IN",
+          type: "Full Time",
+          posted: "9 days ago",
+          category: "manufacturing",
+        },
+        {
+          id: 3,
+          title: "Operations Associate - IDM",
+          company: "Lilly",
+          salary: "$64,500 - $140,800",
+          location: "Indianapolis, IN",
+          type: "Full Time",
+          posted: "4 days ago",
+          category: "technology",
+        },
+        {
+          id: 4,
+          title: "Program Coordinator",
+          company: "State of Indiana",
+          salary: "$50,000 - $70,000",
+          location: "Indianapolis, IN",
+          type: "Full Time",
+          posted: "4 days ago",
+          category: "government",
+        },
+        {
+          id: 5,
+          title: "Registered Nurse",
+          company: "Community Health",
+          salary: "$70,000 - $90,000",
+          location: "Fort Wayne, IN",
+          type: "Full Time",
+          posted: "2 days ago",
+          category: "healthcare",
+        },
+        {
+          id: 6,
+          title: "High School Teacher",
+          company: "Indianapolis Public Schools",
+          salary: "$55,000 - $75,000",
+          location: "Indianapolis, IN",
+          type: "Full Time",
+          posted: "1 day ago",
+          category: "education",
+        },
+      ];
+
+      // DOM elements
+      const jobList = document.getElementById("jobList");
+      const loading = document.getElementById("loading");
+      const errorMessage = document.getElementById("errorMessage");
+      const loadJobsBtn = document.getElementById("loadJobs");
+      const clearJobsBtn = document.getElementById("clearJobs");
+      const categoryFilter = document.getElementById("categoryFilter");
+      const locationFilter = document.getElementById("locationFilter");
+
+      // Function to display jobs
+      function displayJobs(jobs) {
+        jobList.innerHTML = "";
+
+        if (jobs.length === 0) {
+          jobList.innerHTML =
+            '<div class="loading">No jobs found matching your criteria.</div>';
+          return;
+        }
+
+        jobs.forEach((job) => {
+          const jobCard = document.createElement("div");
+          jobCard.className = "job-card";
+          jobCard.innerHTML = `
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">${job.title}</h3>
+                            <div class="company-name">${job.company}</div>
+                        </div>
+                        <div class="job-date">${job.posted}</div>
+                    </div>
+                    <div class="job-meta">
+                        <div class="meta-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-2-2v-3H6v-2h2V9l2-2h2l2 2v2h2v2h-2v3l-2 2v1h-2v-1zm2.5-6.5c0-1.38-1.12-2.5-2.5-2.5s-2.5 1.12-2.5 2.5S10.62 13 12 13s2.5-1.12 2.5-2.5z"/>
+                            </svg>
+                            ${job.salary}
+                        </div>
+                        <div class="meta-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            ${job.location}
+                        </div>
+                        <div class="meta-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h2.5L18 6.5 19.5 8 21 9.5V12h-2v-2.5L17.5 8 16 6.5 14.5 5V3h2z"/>
+                            </svg>
+                            ${job.type}
+                        </div>
+                    </div>
+                `;
+          jobList.appendChild(jobCard);
+        });
+      }
+
+      // Function to filter jobs based on criteria
+      function filterJobs() {
+        const category = categoryFilter.value;
+        const location = locationFilter.value;
+
+        let filteredJobs = [...jobsData];
+
+        if (category !== "all") {
+          filteredJobs = filteredJobs.filter(
+            (job) => job.category === category,
+          );
+        }
+
+        if (location !== "all") {
+          filteredJobs = filteredJobs.filter(
+            (job) => job.location === location,
+          );
+        }
+
+        return filteredJobs;
+      }
+
+      // Simulate loading data from JSON file
+      function loadJobsFromJSON() {
+        // Show loading state
+        loading.style.display = "block";
+        errorMessage.style.display = "none";
+        jobList.innerHTML = "";
+
+        // Simulate network delay
+        setTimeout(() => {
+          try {
+            const filteredJobs = filterJobs();
+            displayJobs(filteredJobs);
+            loading.style.display = "none";
+          } catch (error) {
+            loading.style.display = "none";
+            errorMessage.textContent = `Error loading jobs: ${error.message}`;
+            errorMessage.style.display = "block";
+          }
+        }, 800);
+      }
+
+      // Clear job listings
+      function clearJobs() {
+        jobList.innerHTML = "";
+        errorMessage.style.display = "none";
+      }
+
+      // Event listeners
+      loadJobsBtn.addEventListener("click", loadJobsFromJSON);
+      clearJobsBtn.addEventListener("click", clearJobs);
+
+      // Add event listeners for filters
+      categoryFilter.addEventListener("change", loadJobsFromJSON);
+      locationFilter.addEventListener("change", loadJobsFromJSON);
+
+      // Load jobs when page loads
+      document.addEventListener("DOMContentLoaded", () => {
+        loadJobsFromJSON();
+      });
+
+      // Alternative method: Loading from external JSON file
+      async function loadJobsFromExternalFile() {
+        try {
+          const response = await fetch("jobs.json"); // This would be your JSON file path
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          displayJobs(data);
+        } catch (error) {
+          errorMessage.textContent = `Failed to load jobs from file: ${error.message}`;
+          errorMessage.style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>
+```
