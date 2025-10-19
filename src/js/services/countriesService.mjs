@@ -1,5 +1,5 @@
 // CountriesService.mjs
-const API_BASE = 'https://restcountries.com/v3.1/name';
+const API_BASE = 'https://restcountries.com/v3.1/all';
 const cache = new Map();
 
 /**
