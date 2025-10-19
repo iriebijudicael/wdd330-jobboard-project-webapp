@@ -1,7 +1,8 @@
 /* === GLOBAL STYLES === */
 :root {
   --primary: #fdaa0e;
-  --primary-light: #1cd89f;
+  --primary-light: #ffd36a;
+  --primary-hover: #d98b06;
   --loading-color: #5b95eb;
   --text-dark: #111;
   --text-light: #666;
@@ -248,30 +249,26 @@ header .container {
 
 /* ==============================
    JOBS SECTION
+   Use grid here; removed invalid flex-direction on grid
 ============================== */
 .jobs-section {
   display: grid;
-  flex-direction: column;
   gap: 2rem;
   margin-top: 3rem;
 }
 
-
+/* Consolidated JOB LIST and JOB CARD styles to avoid duplicates/conflicts */
 .jobList {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1.5rem;
 }
 
-/* ==============================
-   JOB CARD
-============================== */
 .job-card {
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 20px 40px;
   box-shadow: var(--shadow);
+  padding: 1.5rem;
   transition: var(--transition);
 }
 
@@ -281,15 +278,14 @@ header .container {
 }
 
 .job-card h3 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
   font-weight: 600;
-  margin-bottom: 0.2rem;
 }
 
 .job-card .company {
   color: var(--primary);
   font-size: 0.9rem;
-  font-weight: 500;
   margin-bottom: 0.8rem;
 }
 
@@ -302,11 +298,10 @@ header .container {
 .job-meta {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   gap: 1rem;
-  color: var(--text-light);
   font-size: 0.9rem;
-  margin-bottom: 1rem;
+  color: var(--text-light);
+  align-items: center;
 }
 
 .job-tags {
@@ -323,19 +318,21 @@ header .container {
   font-size: 0.8rem;
 }
 
+/* Consolidated job-actions */
 .job-actions {
+  margin-top: 1rem;
   display: flex;
-  gap: 0.8rem;
+  gap: 1rem;
 }
 
 .job-actions button {
   flex: 1;
-  border: none;
+  padding: 0.7rem;
   border-radius: var(--radius);
-  padding: 0.6rem;
-  font-weight: 500;
+  border: none;
   cursor: pointer;
   transition: var(--transition);
+  font-weight: 500;
 }
 
 .job-actions .apply {
@@ -348,18 +345,14 @@ header .container {
 }
 
 .job-actions .details {
-  background: var(--white);
-  border: 1px solid var(--border);
+  background: var(--bg-light);
   color: var(--text-dark);
+  border: 1px solid var(--border);
 }
 
 .job-actions .details:hover {
-  background: #f3f3f3;
+  background: var(--border);
 }
-
-
-
-
 
 .loading {
   text-align: center;
@@ -386,76 +379,6 @@ header .container {
   color: red;
   text-align: center;
   margin-bottom: 1rem;
-}
-
-/* === JOB LIST === */
-.jobList {
-  display: grid;
-  gap: 1.5rem;
-}
-
-.job-card {
-  background: var(--white);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 1.5rem;
-  transition: var(--transition);
-}
-
-.job-card:hover {
-  transform: translateY(-4px);
-}
-
-.job-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.3rem;
-}
-
-.job-card .company {
-  font-size: 0.9rem;
-  color: var(--text-light);
-  margin-bottom: 0.8rem;
-}
-
-.job-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  font-size: 0.9rem;
-  color: var(--text-light);
-}
-
-.job-actions {
-  margin-top: 1rem;
-  display: flex;
-  gap: 1rem;
-}
-
-.job-actions button {
-  flex: 1;
-  padding: 0.7rem;
-  border-radius: var(--radius);
-  border: none;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.job-actions .apply {
-  background: var(--primary);
-  color: var(--white);
-}
-
-.job-actions .details {
-  background: var(--bg-light);
-  color: var(--text-dark);
-}
-
-.job-actions .apply:hover {
-  background: var(--primary-light);
-}
-
-.job-actions .details:hover {
-  background: var(--border);
 }
 
 /* === FOOTER === */
@@ -486,6 +409,13 @@ footer {
 
   .job-actions {
     flex-direction: column;
+  }
+
+  /* make section stack on small screens */
+  #section-container {
+    grid-template-columns: 1fr;
+    padding: 2vw;
+    margin: 1rem;
   }
 }
 
