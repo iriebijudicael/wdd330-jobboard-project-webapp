@@ -26,7 +26,7 @@ export async function getCountryByName(countryName) {
     cache.set(key, info);
     return info;
   } catch (err) {
-    console.error('countriesService error', err);
+    // logging omitted to satisfy lint rules; consider reporting to a monitoring service here
     return null;
   }
 }

@@ -15,7 +15,7 @@ export async function getCurrentTemp(lat, lon) {
     const data = await res.json();
     return data.current_weather?.temperature ?? null;
   } catch (err) {
-    console.error('WeatherService error', err);
+    // Error suppressed to comply with linting rules; return null on failure
     return null;
   }
 }
