@@ -1,5 +1,5 @@
 // JobController.mjs
-import { JobModel } from '../models/jobFilter.mjs';
+import { JobModel } from '../models/searchFilter.mjs';
 import { JobView } from '../views/jobCardView.mjs';
 import { getCountryByName } from '../services/countriesService.mjs';
 import { getCurrentTemp } from '../services/weatherService.mjs';
