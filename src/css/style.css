@@ -6,7 +6,7 @@
   --loading-color: #5b95eb;
   --text-dark: #111;
   --text-light: #666;
-  --bg-light: #f9f9fb;
+  --bg-light: #f7f7fa;
   --white: #fff;
   --border: #e5e5e9;
   --radius: 10px;
@@ -145,12 +145,14 @@ header .container {
    SECTION - CONTAINER
 ======================================= */
 #section-container{
+  align-items:stretch;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(250px,1fr) minmax(0,3.5fr);
   gap: 0.9rem;
   margin: 1.5rem;
-  padding: 3vw;
+  padding: 2.5vw 9vw;
 }
+
 /* ==============================
    ASIDEBAR (Job Alerts + Filters)
 ============================== */
@@ -254,6 +256,9 @@ header .container {
 .jobs-section {
   display: grid;
   gap: 2rem;
+  margin-top: 3rem;
+}
+#jobs-heading{
   margin-top: 3rem;
 }
 
@@ -366,6 +371,7 @@ header .container {
   border: 2px solid var(--loading-color);
   border-top-color: transparent;
   border-radius: 50%;
+  text-align: center;
   animation: spin 1s linear infinite;
 }
 
