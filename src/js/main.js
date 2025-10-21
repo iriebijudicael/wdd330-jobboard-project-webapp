@@ -1,37 +1,19 @@
-// main.js
-import { JobController } from './controllers/jobController.mjs';
+import { fetchJobs } from './utils.mjs';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const jobListEl = document.getElementById('jobList');
-  const loadingEl = document.getElementById('loading');
-  const errorEl = document.getElementById('errorMessage');
+document.addEventListener('DOMContentLoaded', async () => {
+  const jobs = await fetchJobs();
+  const container = document.querySelector('#jobList');
 
-  const jobController = new JobController({ jobListEl, loadingEl, errorEl });
-
-  // initial load
-  jobController.loadAndRender();
-
-  // search form
-  const searchForm = document.getElementById('hero-search');
-  const searchTitle = document.getElementById('searchTitle');
-  const searchLocation = document.getElementById('searchLocation');
-  const jobType = document.getElementById('jobTypeFilter');
-  const experience = document.getElementById('experienceFilter');
-
-  searchForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const filters = {
-      type: jobType.value,
-      experience: experience.value,
-      location: searchLocation.value
-    };
-    jobController.loadAndRender(searchTitle.value, filters);
-    document.getElementById('jobs').scrollIntoView({ behavior: 'smooth' });
-  });
-
-  // optionally: make filter changes reactive
-  jobType.addEventListener('change', () => {
-    const filters = { type: jobType.value, experience: experience.value, location: searchLocation.value };
-    jobController.loadAndRender(searchTitle.value, filters);
+  jobs.forEach(job => {
+    const card = document.createElement('div');
+    card.classList.add('job-card');
+    card.innerHTML = `
+      <h3>${job.title}</h3>
+      <p><strong>${job.company}</strong> — ${job.location}</p>
+      <p><em>${job.type}</em> | ${job.salary}</p>
+      <p>${job.description}</p>
+      <a href="${job.applyUrl}" target="_blank" class="apply-btn">Apply Now</a>
+    `;
+    container.appendChild(card);
   });
 });

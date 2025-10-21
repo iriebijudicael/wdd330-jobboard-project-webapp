@@ -27,7 +27,7 @@
   </header>
 
   <main id="main" role="main">
-    <!-- static markup & interactive search form -->
+    <!-- dynamic markup & interactive search form -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="container">
         <h2 id="hero-title">Find your next job</h2>
@@ -79,8 +79,10 @@
 
         <div id="errorMessage" class="error" role="alert" hidden></div>
 
-        <h2 id="jobs-heading">Jobs</h2>
-        <div id="jobList" class="jobList" aria-live="polite"></div>
+        <h2 id="jobs-heading">Available Jobs</h2>
+        <div id="jobList" class="jobList">
+          
+        </div>
       </section>
     </div>
     

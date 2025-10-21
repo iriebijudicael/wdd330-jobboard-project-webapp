@@ -1,60 +1,48 @@
-// JobController.mjs
-import { JobModel } from '../models/jobFilter.mjs';
+// src/js/controllers/JobController.mjs
+import { JobAPI } from '../services/apiService.mjs';
 import { JobView } from '../views/jobCardView.mjs';
-import { getCountryByName } from '../services/countriesService.mjs';
-import { getCurrentTemp } from '../services/weatherService.mjs';
 
 export class JobController {
-  constructor({ jobListEl, loadingEl, errorEl }) {
-    this.model = new JobModel();
-    this.view = new JobView(jobListEl, loadingEl, errorEl);
-    this.countryCache = new Map();
-    this.weatherCache = new Map();
+  constructor() {
+    this.jobView = new JobView();
+    this.initListeners();
   }
 
-  /**
-   * Load jobs, apply filters then enrich each job with flag & temp
-   */
-  async loadAndRender(query = '', filters = {}) {
+  initListeners() {
+    const form = document.getElementById('hero-search');
+    const jobType = document.getElementById('jobTypeFilter');
+    const experience = document.getElementById('experienceFilter');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const query = document.getElementById('searchTitle').value.trim();
+      const location = document.getElementById('searchLocation').value.trim();
+      this.loadJobs(query, { location });
+    });
+
+    [jobType, experience].forEach((filter) =>
+      filter.addEventListener('change', () => {
+        const query = document.getElementById('searchTitle').value.trim();
+        const location = document.getElementById('searchLocation').value.trim();
+        this.loadJobs(query, {
+          location,
+          type: jobType.value,
+          experience: experience.value
+        });
+      })
+    );
+  }
+
+  async loadJobs(query = '', filters = {}) {
+    this.jobView.showLoading();
+
     try {
-      this.view.renderLoading(true);
-      this.view.renderError(null);
-      const jobs = await this.model.getJobs(query, filters);
-
-      // enrich jobs in parallel (but be mindful of rate limits)
-      const enriched = await Promise.all(jobs.map(async (job) => {
-        // get country from job.location (try to pick last token if city)
-        const countryName = this.extractCountry(job.location);
-        if (countryName) {
-          const country = await getCountryByName(countryName);
-          if (country) job.flagUrl = country.flag;
-          // use lat/lon from country as fallback for weather
-          const latlng = job.latitude && job.longitude ? [job.latitude, job.longitude] : country?.latlng ?? null;
-          if (latlng && latlng.length >= 2) {
-            const key = `${latlng[0]}:${latlng[1]}`;
-            if (!this.weatherCache.has(key)) {
-              const temp = await getCurrentTemp(latlng[0], latlng[1]);
-              this.weatherCache.set(key, temp);
-            }
-            job.temp = this.weatherCache.get(key);
-          }
-        }
-        return job;
-      }));
-
-      this.view.renderJobs(enriched);
-    } catch (err) {
-      this.view.renderError(err.message || 'Failed to load jobs');
+      const jobs = await JobAPI.fetchJobsFromServer(query, filters);
+      this.jobView.renderJobs(jobs);
+    } catch (error) {
+      this.jobView.showError('Failed to load jobs. Please try again later.');
     } finally {
-      this.view.renderLoading(false);
+      this.jobView.hideLoading();
     }
-  }
-
-  extractCountry(locationText='') {
-    // Simple heuristic: if location contains a comma, assume last part is country
-    if (!locationText) return null;
-    const parts = locationText.split(',').map(s => s.trim());
-    if (parts.length === 1) return parts[0]; // might be "USA" / "France"
-    return parts[parts.length - 1]; // last part
   }
 }

@@ -1,35 +1,11 @@
-
-import { fetchJobs, filterJobs } from 'models/jobList.mjs';
-import { 
-  displayJobs, 
-  showError, 
-  hideError, 
-  showLoading, 
-  hideLoading 
-} from 'models/jobFilter.mjs';
-
-export async function handleLoadJobs(
-  jobListEl, 
-  errorEl, 
-  loadingEl, 
-  categoryFilter, 
-  locationFilter
-) {
-  showLoading(loadingEl);
-  hideError(errorEl);
-
+// src/js/utils.mjs
+export async function fetchJobs() {
   try {
-    const jobs = await fetchJobs();
-    const filtered = filterJobs(jobs, categoryFilter.value, locationFilter.value);
-    displayJobs(filtered, jobListEl);
+    const response = await fetch('/data/mock-jobs.json');
+    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+    return await response.json();
   } catch (error) {
-    showError(errorEl, error.message);
-  } finally {
-    hideLoading(loadingEl);
+    console.error('Error fetching jobs:', error);
+    return [];
   }
-}
-
-export function handleClearJobs(jobListEl, errorEl) {
-  jobListEl.innerHTML = '';
-  hideError(errorEl);
 }

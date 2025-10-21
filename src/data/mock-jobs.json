@@ -1,68 +1,130 @@
 [
-      {
-        "id": 1,
-        "title": "Associate Vice President, Engineering Services",
-        "company": "Lilly",
-        "salary": "$0,000 - $10,000",
-        "experienceLevel": "senior",
-        "location": "Indianapolis, IN",
-        "type": "Internship",
-        "posted": "9 days ago",
-        "category": "technology"
-      },
-      {
-        "id": 2,
-        "title": "Associate - Fill/Finish Ops",
-        "company": "Lilly",
-        "salary": "$64,500 - $140,800",
-        "experienceLevel": "remote",
-        "location": "Indianapolis, IN",
-        "type": "Full Time",
-        "posted": "9 days ago",
-        "category": "manufacturing"
-      },
-      {
-        "id": 3,
-        "title": "Operations Associate - IDM",
-        "company": "Lilly",
-        "salary": "$64,500 - $140,800",
-        "experienceLevel": "full time",
-        "location": "Indianapolis, IN",
-        "type": "Part Time",
-        "posted": "4 days ago",
-        "category": "technology"
-      },
-      {
-        "id": 4,
-        "title": "Program Coordinator",
-        "company": "State of Indiana",
-        "salary": "$50,000 - $70,000",
-        "experienceLevel": "senior",
-        "location": "Indianapolis, IN",
-        "type": "Part Time",
-        "posted": "4 days ago",
-        "category": "government"
-      },
-      {
-        "id": 5,
-        "title": "Registered Nurse",
-        "company": "Community Health",
-        "salary": "$70,000 - $90,000",
-        "experienceLevel": "part-time",
-        "location": "Fort Wayne, IN",
-        "type": "Full Time",
-        "posted": "2 days ago",
-        "category": "healthcare"
-      },
-      {
-        "id": 6,
-        "title": "High School Teacher",
-        "company": "Indianapolis Public Schools",
-        "salary": "$55,000 - $75,000",
-        "experienceLevel": "mid-level",
-        "location": "Indianapolis, IN",
-        "type": "Remote",
-        "posted": "1 day ago",
-        "category": "education"
-      }
-    ]
+  {
+    "id": 1,
+    "title": "Frontend Developer",
+    "company": "TechNova Solutions",
+    "location": "Remote",
+    "type": "Full-Time",
+    "salary": "$75,000 - $95,000",
+    "datePosted": "2025-10-10",
+    "description": "Build responsive and accessible web interfaces using HTML, CSS, and JavaScript. Collaborate with designers and backend developers to improve UI/UX performance.",
+    "requirements": [
+      "2+ years experience with modern JavaScript",
+      "Experience with responsive design and accessibility",
+      "Strong understanding of web standards"
+    ],
+    "applyUrl": "https://www.technova.dev/careers/frontend-developer"
+  },
+  {
+    "id": 2,
+    "title": "Backend Engineer",
+    "company": "CodeSphere Labs",
+    "location": "San Francisco, CA",
+    "type": "Full-Time",
+    "salary": "$90,000 - $120,000",
+    "datePosted": "2025-10-05",
+    "description": "Design and build scalable APIs with Node.js. Optimize performance, ensure data security, and collaborate with cross-functional teams.",
+    "requirements": [
+      "Proficient in Node.js and Express",
+      "Familiarity with RESTful APIs and database design",
+      "Experience with Docker or cloud services"
+    ],
+    "applyUrl": "https://codesphere.io/jobs/backend-engineer"
+  },
+  {
+    "id": 3,
+    "title": "UI/UX Designer",
+    "company": "CreativeMind Studio",
+    "location": "New York, NY",
+    "type": "Contract",
+    "salary": "$60/hr",
+    "datePosted": "2025-09-28",
+    "description": "Create user-centered designs for web and mobile platforms. Work closely with developers to implement modern UI trends.",
+    "requirements": [
+      "Proficiency with Figma or Adobe XD",
+      "Strong portfolio of web and mobile projects",
+      "Understanding of responsive and accessible design"
+    ],
+    "applyUrl": "https://creativemind.studio/jobs/uiux-designer"
+  },
+  {
+    "id": 4,
+    "title": "Full Stack Developer",
+    "company": "CloudShift",
+    "location": "Austin, TX",
+    "type": "Full-Time",
+    "salary": "$85,000 - $110,000",
+    "datePosted": "2025-10-14",
+    "description": "Work across the full stack to deliver cloud-native web applications using React and Node.js.",
+    "requirements": [
+      "Experience with RESTful APIs and NoSQL databases",
+      "Knowledge of cloud deployment (AWS, Azure)",
+      "Strong JavaScript/TypeScript background"
+    ],
+    "applyUrl": "https://cloudshift.tech/careers/fullstack"
+  },
+  {
+    "id": 5,
+    "title": "Marketing Specialist",
+    "company": "BrightBrand Media",
+    "location": "Los Angeles, CA",
+    "type": "Part-Time",
+    "salary": "$25/hr",
+    "datePosted": "2025-10-16",
+    "description": "Develop and execute digital marketing campaigns to promote client brands and products.",
+    "requirements": [
+      "Knowledge of SEO and Google Analytics",
+      "Strong writing and content creation skills",
+      "Experience with social media marketing"
+    ],
+    "applyUrl": "https://brightbrandmedia.com/jobs/marketing"
+  },
+  {
+    "id": 6,
+    "title": "Software QA Tester",
+    "company": "DevEdge Systems",
+    "location": "Remote",
+    "type": "Full-Time",
+    "salary": "$65,000 - $80,000",
+    "datePosted": "2025-09-30",
+    "description": "Perform manual and automated testing to ensure software reliability and performance.",
+    "requirements": [
+      "Experience with QA methodologies",
+      "Knowledge of Selenium or Cypress",
+      "Detail-oriented and good communication"
+    ],
+    "applyUrl": "https://devedge.io/careers/qa-tester"
+  },
+  {
+    "id": 7,
+    "title": "Data Analyst",
+    "company": "InsightX Analytics",
+    "location": "Toronto, Canada",
+    "type": "Full-Time",
+    "salary": "$70,000 - $95,000",
+    "datePosted": "2025-10-12",
+    "description": "Analyze datasets to identify business insights and support decision-making.",
+    "requirements": [
+      "Proficiency in SQL and Python",
+      "Experience with visualization tools (Tableau, Power BI)",
+      "Strong problem-solving skills"
+    ],
+    "applyUrl": "https://insightx.ca/jobs/data-analyst"
+  },
+  {
+    "id": 8,
+    "title": "DevOps Engineer",
+    "company": "CloudNet Services",
+    "location": "Berlin, Germany",
+    "type": "Full-Time",
+    "salary": "€85,000 - €100,000",
+    "datePosted": "2025-10-01",
+    "description": "Implement CI/CD pipelines and manage scalable cloud infrastructure for modern web apps.",
+    "requirements": [
+      "Experience with Docker and Kubernetes",
+      "Strong scripting knowledge (Bash, Python)",
+      "Understanding of cloud architecture"
+    ],
+    "applyUrl": "https://cloudnet.io/jobs/devops-engineer"
+  }
+]

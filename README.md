@@ -27,3 +27,27 @@ npm run lint to run ESLint against your code to find errors.
 npm run format to run Prettier to automatically format your code.
 npm run start starts up a local server and updates on any JS or CSS/SCSS
 npm run build to build final files when you are ready to turn in.
+
+
+
+RAPID_API_KEY = 'f4d5096a6amsh22d9b06fb71fdf9p1fff95jsn14e7fe135821';
+API_URL = 'https://linkedin-jobs-search.p.rapidapi.com/';
+
+
+
+.grid {
+  display: grid;
+  align-items: center;
+}
+    
+main {
+  grid-column: 2/3;
+  margin: 1rem;
+}
+    
+aside {
+  width: 20rem;
+  position: relative;
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
