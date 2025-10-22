@@ -1,7 +1,7 @@
 // src/js/utils.mjs
 export async function fetchJobs() {
   try {
-    const response = await fetch('/data/mock-jobs.json');
+    const response = await fetch('/public/mock-jobs.json');
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
     return await response.json();
   } catch (error) {
