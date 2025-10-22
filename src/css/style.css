@@ -299,6 +299,17 @@ header .container {
   font-size: 0.95rem;
   margin-bottom: 1rem;
 }
+.apply-btn {
+  background: none;
+  color: var(--primary);
+  font-size: 0.95rem;
+  border-radius: 15px;
+  border: 1.5px solid var(--primary);
+  margin-top: 1rem;
+  padding: 10px 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 .job-meta {
   display: flex;
