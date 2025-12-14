@@ -1,24 +1,30 @@
-// // src/js/services/ApiService.mjs
-// export const JobAPI = (() => {
-//   const BASE_URL = 'http://localhost:5000/api/jobs'; // Change to your deployed server URL later
+// /js/models/ApiService.mjs
+const API = 'https://jsonplaceholder.typicode.com/posts';
+// const API = 'POST https://api.cloudconvert.com/v2/jobs';
 
-//   async function fetchJobsFromServer(query = '', filters = {}) {
-//     const params = new URLSearchParams({
-//       query: query || 'developer',
-//       location: filters.location || 'remote',
-//       type: filters.type || 'all',
-//       experience: filters.experience || 'all'
-//     });
+export async function fetchJobsFromServer(query = '', filters = {}) {
+  const res = await fetch(API);
+  if (!res.ok) throw new Error('Failed to fetch jobs');
+  const jobs = await res.json();
 
-//     try {
-//       const response = await fetch(`${BASE_URL}?${params}`);
-//       if (!response.ok) throw new Error('Failed to fetch jobs');
-//       return await response.json();
-//     } catch (err) {
-//       console.error('API fetch error:', err);
-//       throw err;
-//     }
-//   }
+  // Filter locally since mock-jobs.json is static
+  return jobs.filter(job => {
+    const matchKeyword =
+      job.title.toLowerCase().includes(query.toLowerCase()) ||
+      job.company.toLowerCase().includes(query.toLowerCase()) ||
+      job.description.toLowerCase().includes(query.toLowerCase());
 
-//   return { fetchJobsFromServer };
-// })();
+    const matchLocation =
+      !filters.location ||
+      job.location.toLowerCase().includes(filters.location.toLowerCase());
+
+    const matchType =
+      filters.type === 'all' || job.type.toLowerCase() === filters.type.toLowerCase();
+
+    const matchExperience =
+      filters.experience === 'all' ||
+      (job.experience && job.experience.toLowerCase().includes(filters.experience.toLowerCase()));
+
+    return matchKeyword && matchLocation && matchType && matchExperience;
+  });
+}

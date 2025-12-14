@@ -13,7 +13,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html'),
-        product1: resolve(__dirname, 'src/job_pages/post-description.html'),
+        main: resolve(__dirname, 'src/index.html'),
+        main: resolve(__dirname, 'src/index.html'),
+        job_pages: resolve(__dirname, 'src/job_pages/post-description.html'),
       },
     },
   },

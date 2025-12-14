@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>U-Work — Companies</title>
+
+  <meta name="description" content="Search jobs, filter by type, and view company info. CareerHub job board using modern HTML, CSS and vanilla JS."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/jobs.css">
+  <script src="scripts/companies.js" defer></script>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">U-Work</div>
+
+    <!-- Hamburger Icon (Mobile) -->
+    <div class="menu-toggle" id="menuToggle">☰</div>
+
+    <nav id="mobileMenu">
+      <ul>
+        <li>
+          <a href="index.html">Home</a>
+          <a href="jobs.html">Jobs</a>
+          <a class="active" href="companies.html">Companies</a>
+          <button id="postJob">Post Job</button>
+
+
+                   <!-- POST JOB DIALOG -->
+          <dialog id="postJobDialog" class="postjob-dialog">
+            <form method="get" id="postJobForm" action="review.html">
+              <h2>Post a New Job</h2>
+    
+              <button class="close-button">❌</button>
+              <label>Job Title</label>
+              <input type="text" id="jobTitle" required />
+
+              <label>Company Name</label>
+              <input type="text" id="jobCompany" required />
+
+              <label>Location</label>
+              <input type="text" id="jobLocation" required />
+
+              <label>Job Type</label>
+              <select id="jobType" required>
+                <option value="Full-time">Full-time</option>
+                <option value="Part-time">Part-time</option>
+                <option value="Contract">Contract</option>
+                <option value="Remote">Remote</option>
+                <option value="Internship">Internship</option>
+              </select>
+
+              <div class="dialog-buttons">
+                <!-- <button value="cancel" class="cancel-btn">Cancel</button> -->
+                <button value="confirm" class="submit-btn">Post Job</button>
+              </div>
+            </form>
+          </dialog>
+
+        </li>
+      </ul>
+      
+    </nav>
+  </header>
+
+  <!-- HEADER SECTION -->
+  <section class="header-section">
+    <h1>Discover Top Companies</h1>
+    <p>Find companies hiring near you and explore opportunities that match your skills.</p>
+
+    <div class="company-search">
+      <input id="searchCompany" type="text" placeholder="Search by company name...">
+      <select id="filterIndustry">
+        <option value="">All Industries</option>
+        <option value="Tech">Tech</option>
+        <option value="Design">Design</option>
+        <option value="Business">Business</option>
+        <option value="Marketing">Marketing</option>
+      </select>
+
+      <select id="filterLocation">
+        <option value="">All Locations</option>
+        <option value="Abidjan">Abidjan</option>
+        <option value="Yamoussoukro">Yamoussoukro</option>
+        <option value="Bouaké">Bouaké</option>
+        <option value="Remote">Remote</option>
+      </select>
+
+      <button id="searchBtn">Search</button>
+    </div>
+  </section>
+
+  <!-- COMPANIES GRID -->
+  <main>
+  <section class="companies">
+    <h2>Available Companies</h2>
+
+    <div id="companyGrid" class="company-grid"></div>
+  </section>
+
+  <section class="stats-section">
+  <h2>Platform Statistics</h2>
+
+  <div class="stats-grid">
+    <div class="stat-box">
+      <span class="stat-number" data-target="12800">0</span>
+      <p>Followers</p>
+    </div>
+
+    <div class="stat-box">
+      <span class="stat-number" data-target="3500">0</span>
+      <p>Enrolled Companies</p>
+    </div>
+
+    <div class="stat-box">
+      <span class="stat-number" data-target="54000">0</span>
+      <p>Monthly Visitors</p>
+    </div>
+  </div>
+  </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    
+    <div class="resources">
+      <div class="logo">U-Work</div>
+      <ul>
+        <li class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="jobs.html">Jobs</a>
+          <a href="companies.html">Companies</a>
+        </li>
+      </ul>
+    </div>
+    <p>© 2025 U-Work. All rights reserved.</p>
+  </footer>
+
+
+</body>
+</html>

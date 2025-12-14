@@ -71,7 +71,11 @@ header .container {
 }
 
 .nav-links a:hover {
-  color: var(--primary);
+  border-bottom: 2px solid #ffb31a;
+}
+.nav-links a.active {
+  font-weight: bold;
+  color: #ffb31a;
 }
 
 .btn-post {
@@ -87,6 +91,47 @@ header .container {
 
 .btn-post:hover {
   background: var(--primary-light);
+}
+
+/* DIALOG STYLING */
+.postjob-dialog {
+  padding: 25px;
+  border: none;
+  border-radius: 14px;
+  width: 90%;
+  max-width: 420px;
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.postjob-dialog form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.postjob-dialog h2 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  color: #222;
+}
+
+/* INPUTS */
+.postjob-dialog input,
+.postjob-dialog select {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #111;
+  font-size: 16px;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: none;
+  cursor: pointer; 
 }
 
 /* === HERO SECTION === */
@@ -114,7 +159,7 @@ header .container {
 
 .hero-search input {
   padding: 0.8rem 1rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--text-dark);
   border-radius: var(--radius);
   font-size: 1rem;
   min-width: 220px;
@@ -371,18 +416,23 @@ header .container {
 }
 
 .loading {
-  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  display: flex;
+  margin: 2rem 0;
   color: var(--text-light);
 }
 
 .spinner {
   display: inline-block;
-  width: 16px;
-  height: 16px;
-  border: 2px solid var(--loading-color);
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary);
   border-top-color: transparent;
   border-radius: 50%;
   text-align: center;
+  height: fit-content;
   animation: spin 1s linear infinite;
 }
 
@@ -399,14 +449,38 @@ header .container {
 }
 
 /* === FOOTER === */
-footer {
-  background: var(--white);
-  border-top: 1px solid var(--border);
+/* FOOTER */
+.footer {
   text-align: center;
-  padding: 2rem 0;
-  margin-top: 3rem;
+  padding: 20px;
+  background: #fff;
+  margin-top: 40px;
+}
+footer .logo {
   font-size: 0.9rem;
-  color: var(--text-light);
+}
+.resources {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.footer-links{
+  display: grid;
+  flex-direction: column;
+  padding: 0 10px;
+  text-align: left;
+}
+.footer-links a {
+  font-weight: 600;
+  color: #111;
+  text-decoration: none;
+  display: block;
+  margin: 2px 0;
+}
+footer p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 1rem;
 }
 
 /* === RESPONSIVE === */
