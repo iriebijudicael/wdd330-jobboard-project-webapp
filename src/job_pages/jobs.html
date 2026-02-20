@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>U-work— Home</title>
+
+  <meta name="description" content="Search jobs, filter by type, and view company info. CareerHub job board using modern HTML, CSS and vanilla JS."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/jobs.css">
+  <script src="scripts/jobs.js" defer></script>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+<header id="main-header" role="banner">
+    <div class="container">
+      <h1 class="logo">U-Work</h1>
+
+      <nav role="navigation" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#jobs">Jobs</a></li>
+          <li><a href="#companies">Companies</a></li>
+          <li><button id="postJobBtn" class="btn-primary">Post Job</button></li>
+        </ul>
+      </nav>
+
+    </div>
+</header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Find your dream career today</h1>
+    <p>Search thousands of job offers from top companies.</p>
+
+    <form id="heroSearch" class="search-box">
+      <input type="text" placeholder="Job Title or keyword">
+      <input type="text" placeholder="Location (city or country)">
+      <button>Search</button>
+    </form>
+  </section>
+
+  <main>
+  <!-- FEATURED CATEGORIES -->
+  <section class="categories">
+    <h2>Explore Categories</h2>
+
+    <div class="grid">
+      <div class="category-card">
+        <img src="icons/dev.svg" alt="">
+        <h3>Software Development</h3>
+      </div>
+
+      <div class="category-card">
+        <img src="icons/design.svg" alt="">
+        <h3>UI/UX Design</h3>
+      </div>
+
+      <div class="category-card">
+        <img src="icons/marketing.svg" alt="">
+        <h3>Marketing</h3>
+      </div>
+
+      <div class="category-card">
+        <img src="icons/sales.svg" alt="">
+        <h3>Sales</h3>
+      </div>
+      <div class="category-card">
+          <img src="icons/business.svg" alt="">
+          <h3>Business</h3>
+      </div>
+      <div class="category-card">
+          <img src="icons/finance.svg" alt="">
+          <h3>Finance</h3>
+      </div>
+      <div class="category-card">
+          <img src="icons/hr.svg" alt="">
+          <h3>Human Resources</h3>
+      </div>
+      <div class="category-card">
+          <img src="icons/customer-service.svg" alt="">
+          <h3>Customer Service</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRENDING JOBS -->
+  <section class="trending">
+    <h2>Trending Jobs</h2>
+
+    <div class="jobs-list" id="homeTrendingJobs"></div>
+    <div class="jobs-list" id="jobList"></div>
+  </section>
+  
+
+  
+
+
+
+
+  <!-- TOP COMPANIES -->
+  <section class="companies">
+    <h2>Top Companies</h2>
+
+    <div class="company-grid">
+      <div class="company-card">
+        <img data-src="images/compan-logo1.webp" class="lazy" alt="">
+        <h3>TechCorp</h3>
+      </div>
+
+      <div class="company-card">
+        <img data-src="images/compan-logo2.webp" class="lazy" alt="">
+        <h3>SoftLab</h3>
+      </div>
+
+      <div class="company-card">
+        <img data-src="images/compan-logo4.webp" class="lazy" alt="">
+        <h3>Designify</h3>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="main-footer" class="footer">
+    
+    <div class="resources">
+      <div class="logo">U-Work</div>
+      <ul>
+        <li class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="jobs.html">Jobs</a>
+          <a href="companies.html">Companies</a>
+        </li>
+      </ul>
+    </div>
+    <p>&copy; 2026 CareerHub - Built with HTML, CSS & vanilla JS</p>
+  </footer>
+
+
+</body>
+</html>

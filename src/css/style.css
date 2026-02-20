@@ -328,7 +328,87 @@ header .container {
 
 
 
+/* 1. Mobile First: Base Styles */
+.job-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  list-style: none;
+}
 
+.job-card {
+  background: #ffffff;
+  border: 1px solid #e1e4e8;
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* 2. Tablet & Desktop: Grid Layout */
+@media screen and (min-width: 768px) {
+  .job-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* 3. Elements within the Card */
+.job-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.job-card img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+/* Match the 'jobLitle' class from your template */
+.jobLitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0073b1; /* LinkedIn-style blue */
+  margin: 0.5rem 0;
+}
+
+.company-name {
+  font-weight: 600;
+  color: #333;
+}
+
+.location {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+/* 4. Action Button */
+.save-button {
+  margin-top: 1rem;
+  padding: 0.6rem;
+  border: 1px solid #0073b1;
+  background: white;
+  color: #0073b1;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.save-button:hover {
+  background: #eef3f8;
+  border-width: 2px;
+}
 
 
 
