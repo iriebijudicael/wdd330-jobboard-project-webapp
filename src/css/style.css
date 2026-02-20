@@ -269,6 +269,8 @@ header .container {
 }
 
 .job-card {
+  display: grid;
+  list-style: none;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius);

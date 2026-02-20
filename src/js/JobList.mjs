@@ -19,10 +19,10 @@ export default class JobList {
   jobTemplate(job) {
   return `
     <li class="job-card">
-      <h2 class="job-title">${job.job_title || job.title}</h2>
+      <h3 class="job-title">${job.job_title || job.title}</h3>
       <p class="company">${job.company_name || job.company}</p>
       <p class="location">${job.location}</p>
       <a href="${job.job_apply_link}" target="_blank">View Original Post</a>
     </li>`;
-}
+  }
 }
