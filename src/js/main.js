@@ -1,37 +1,21 @@
-// main.js
-import { JobController } from './controllers/jobController.mjs';
+import JobModel from './JobModel.mjs';
+import JobList from './JobList.mjs';
+import { getParam } from './utils.mjs';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const jobListEl = document.getElementById('jobList');
-  const loadingEl = document.getElementById('loading');
-  const errorEl = document.getElementById('errorMessage');
+async function initApp() {
+  const category = getParam('category') || 'Data Engineer';
+  
+  // 1. Create the Model
+  const model = new JobModel(category);
+  
+  // 2. Target the DOM element
+  const listElement = document.querySelector(".jobList");
+  
+  // 3. Create the List controller and PASS the model
+  const jobList = new JobList(category, model, listElement);
+  
+  // 4. Initialize
+  await jobList.init();
+}
 
-  const jobController = new JobController({ jobListEl, loadingEl, errorEl });
-
-  // initial load
-  jobController.loadAndRender();
-
-  // search form
-  const searchForm = document.getElementById('hero-search');
-  const searchTitle = document.getElementById('searchTitle');
-  const searchLocation = document.getElementById('searchLocation');
-  const jobType = document.getElementById('jobTypeFilter');
-  const experience = document.getElementById('experienceFilter');
-
-  searchForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const filters = {
-      type: jobType.value,
-      experience: experience.value,
-      location: searchLocation.value
-    };
-    jobController.loadAndRender(searchTitle.value, filters);
-    document.getElementById('jobs').scrollIntoView({ behavior: 'smooth' });
-  });
-
-  // optionally: make filter changes reactive
-  jobType.addEventListener('change', () => {
-    const filters = { type: jobType.value, experience: experience.value, location: searchLocation.value };
-    jobController.loadAndRender(searchTitle.value, filters);
-  });
-});
+initApp();

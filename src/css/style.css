@@ -323,6 +323,15 @@ header .container {
   font-size: 0.8rem;
 }
 
+
+
+
+
+
+
+
+
+
 /* Consolidated job-actions */
 .job-actions {
   margin-top: 1rem;
@@ -369,7 +378,7 @@ header .container {
   width: 16px;
   height: 16px;
   border: 2px solid var(--loading-color);
-  border-top-color: transparent;
+  border-top-color: #ffb31a;
   border-radius: 50%;
   text-align: center;
   animation: spin 1s linear infinite;
@@ -388,14 +397,37 @@ header .container {
 }
 
 /* === FOOTER === */
-footer {
-  background: var(--white);
-  border-top: 1px solid var(--border);
+.footer {
   text-align: center;
-  padding: 2rem 0;
-  margin-top: 3rem;
+  padding: 10px;
+  background: #fff;
+  margin-top: 40px;
+}
+footer .logo {
+  font-size: 1.5rem;
+}
+.resources {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.footer-links{
+  display: grid;
+  flex-direction: column;
+  padding: 0;
+  text-align: left;
+}
+.footer-links a {
+  font-weight: 600;
+  color: #111;
+  text-decoration: none;
+  display: block;
+  margin: 2px 0;
+}
+footer p {
   font-size: 0.9rem;
-  color: var(--text-light);
+  font-weight: 600;
+  margin-top: 1rem;
 }
 
 /* === RESPONSIVE === */
